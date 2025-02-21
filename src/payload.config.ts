@@ -18,7 +18,6 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   cors: [process.env.CLIENT_URL ?? ''],
-  csrf: [process.env.CLIENT_URL ?? ''],
   admin: {
     user: Users.slug,
     importMap: {
