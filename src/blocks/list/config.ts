@@ -8,6 +8,7 @@ export const List: Block = {
       type: 'array',
       required: true,
       minRows: 1,
+      maxRows: 2,
       fields: [
         {
           type: 'array',
