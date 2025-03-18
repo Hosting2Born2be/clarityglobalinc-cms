@@ -1,4 +1,3 @@
-// storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import {BlocksFeature, FixedToolbarFeature, lexicalEditor} from '@payloadcms/richtext-lexical'
@@ -12,6 +11,8 @@ import { Media } from './collections/Media'
 import { Policy } from "./collections/Policy";
 import { Table } from "@/blocks/table/config";
 import { List } from "@/blocks/list/config";
+import { Newsletter } from "@/collections/Newsletter";
+import {Address} from "@/blocks/address/config";
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -24,12 +25,12 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Policy],
+  collections: [Users, Media, Policy, Newsletter],
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => [
       ...defaultFeatures,
       BlocksFeature({
-        blocks: [Table, List],
+        blocks: [Table, List, Address],
       }),
       FixedToolbarFeature(),
     ]
@@ -41,7 +42,7 @@ export default buildConfig({
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
-      ssl: { rejectUnauthorized: false },
+      // ssl: { rejectUnauthorized: false },
     },
   }),
   sharp,
