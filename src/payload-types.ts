@@ -188,7 +188,7 @@ export interface Newsletter {
   title: string;
   slug?: string | null;
   image?: (number | null) | Media;
-  color?: ('black' | 'orange') | null;
+  thumbnail?: (number | null) | Media;
   content?: {
     root: {
       type: string;
@@ -325,7 +325,7 @@ export interface NewsletterSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   image?: T;
-  color?: T;
+  thumbnail?: T;
   content?: T;
   updatedAt?: T;
   createdAt?: T;

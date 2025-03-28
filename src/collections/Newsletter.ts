@@ -44,19 +44,10 @@ export const Newsletter: CollectionConfig = {
       },
     },
     {
-      name: 'color',
-      type: 'select',
-      label: 'Color',
-      options: [
-        {
-          label: 'Black',
-          value: 'black',
-        },
-        {
-          label: 'Orange',
-          value: 'orange',
-        },
-      ],
+      name: 'thumbnail',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Thumbnail',
       admin: {
         position: 'sidebar',
       },
